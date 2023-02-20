@@ -9,7 +9,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./todo-list.component.css']
 })
 export class TodoListComponent {
-[x: string]: any;
+  title:string = "To-do Lab";
 
   todoList: ITodo[] = [];
   constructor(private todoRepo: TodoRepositoryService) {}
@@ -18,13 +18,17 @@ export class TodoListComponent {
     this.todoList = this.todoRepo.getTodoList();
   }
 
-  addTask(form: NgForm) : void{
+  addTask(form: NgForm) : void {
     let newTaskName = form.form.value.item;
     let newTask : ITodo = { task : newTaskName, completed : false }
     this.todoList.push(newTask);
   }
 
-  completeTask(i: number) {
-    this.todoList[i].completed = true
+  completeTask(itemIndex: number) : void {
+    this.todoList[itemIndex].completed = true;
   }
+
+  // incompleteTask(itemIndex: number) : void {
+  //   this.todoList[itemIndex].completed = false;
+  // }
 }

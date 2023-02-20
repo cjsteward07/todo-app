@@ -1,15 +1,18 @@
-<div class="center">
-    <!-- <h1>{{ title }}</h1> -->
-    <h2>A place to store your todos</h2>
-    </div>
-    <div class="center" *ngFor="let item of todoList; index as i">
-      <div> {{i+1}}. <button *ngIf="!item.completed" (click)="completeTask(i)">Complete</button> {{item.task}} </div>
-    </div>
-    
-    <div class="center">
-      <form  #addtodoForm="ngForm" (ngSubmit)="addTask(addtodoForm)">
-        <input name="item" id="name" placeholder="Add your to-do" ngModel />
-        <div> <button class="buttonA">Add</button>
-        </div>
-      </form>
-    </div>
+<div>
+  <h1>{{ title }}</h1>
+</div>
+<div *ngFor="let item of todoList; index as i">
+  <div>
+    {{ i + 1 }}.
+    <button *ngIf="!item.completed" (click)="completeTask(i)">Complete</button>
+    {{ item.task }}
+    <span *ngIf="item.completed"> - Done! </span>
+  </div>
+</div>
+
+<div>
+  <form #addTodoForm="ngForm" (ngSubmit)="addTask(addTodoForm)">
+    <input name="item" id="item" placeholder="Add task" ngModel />
+    <div><button class="add-task-button">Add</button></div>
+  </form>
+</div>

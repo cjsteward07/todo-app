@@ -9,8 +9,10 @@ import { ITodo } from './interfaces/todo';
 export class TodoRepositoryService {
 
   todoList : ITodo[] = [
-    {task: "laundry", completed: false},
-    {task: "dishes", completed: true}
+    {task: "Do Laundry", completed: true},
+    {task: "Do Dishes", completed: false},
+    {task: "Buy Milk", completed: false},
+    {task: "Clean House", completed: true}
   ]
 
   constructor() { }
@@ -18,10 +20,4 @@ export class TodoRepositoryService {
   getTodoList(): ITodo[] {
     return this.todoList;
   }
-
-
-
 }
-
-
-

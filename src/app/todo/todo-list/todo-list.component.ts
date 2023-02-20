@@ -18,9 +18,10 @@ export class TodoListComponent {
     this.todoList = this.todoRepo.getTodoList();
   }
 
-  addTask(form: NgForm) {
-    let newtodo = { task: form.value.task, completed: false }
-    this.todoList.push(newtodo);
+  addTask(form: NgForm) : void{
+    let newTaskName = form.form.value.item;
+    let newTask : ITodo = { task : newTaskName, completed : false }
+    this.todoList.push(newTask);
   }
 
   completeTask(i: number) {

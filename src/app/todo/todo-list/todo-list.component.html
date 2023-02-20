@@ -1,1 +1,15 @@
-<p>todo-list works!</p>
+<div class="center">
+    <!-- <h1>{{ title }}</h1> -->
+    <h2>A place to store your todos</h2>
+    </div>
+    <div class="center" *ngFor="let name of todoList; index as i">
+      <div> {{i+1}}. <button *ngIf="!name.completed" (click)="completeTask(i)">Complete</button> {{name.task}} </div>
+    </div>
+    
+    <div class="center">
+      <form  #addtodoForm="ngForm" (ngSubmit)="addTask(addtodoForm)">
+        <input name="name" id="name" placeholder="Add your to-do" ngModel />
+        <div> <button class="buttonA">Add</button>
+        </div>
+      </form>
+    </div>
